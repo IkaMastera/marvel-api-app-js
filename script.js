@@ -7,6 +7,11 @@ let date = new Date();
 
 const [timestamp, apiKey, hashValue] = [ts, publicKey, hashVal];
 
+function displayWords(value) {
+  input.value = value;
+  removeElements();
+}
+
 function removeElements() {
   listContainer.innerHTML = "";
 }
@@ -27,7 +32,7 @@ input.addEventListener("keyup", async () => {
     let div = document.createElement("div");
     div.style.cursor = "pointer";
     div.classList.add("autocomplete-items");
-    div.setAttribute("onclick", "displayWords('" + "')");
+    div.setAttribute("onclick", "displayWords('" + name + "')");
     let word = "<b>" + name.substr(0, input.value.length) + "</b>";
     word += name.substr(input.value.length);
     div.innerHTML = `<p class="item">${word}</p>`;
